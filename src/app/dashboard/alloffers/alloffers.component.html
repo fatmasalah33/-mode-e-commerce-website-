@@ -1,0 +1,73 @@
+<div class="container-fluid">
+	<div class="row">
+	<aside class="col-md-3">
+    
+
+</aside>
+<main class="col-md-12">
+    <header class="border-bottom mb-4 pb-3">
+            <div class="form-inline">   
+                <label for="" class="me-2">Sort by: </label>
+                <select (change)="getoffer($event)" class="mr-2 form-select w-25" name="status">
+                    <option>filter offer </option>
+                    <option value="1"> continues offers</option>
+                    <option value="2">expired offers</option>
+                </select>
+           
+            </div>
+    </header>
+    </main>
+</div>
+</div> 
+<section class="section ">
+    <div class="container">
+      <div class="row justify-content-center">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class=" d-flex  row">
+            <h1 class=" text-center justify-content-center title fs-1">All Offers</h1>
+            <h5> <a routerLink="addoffer" class="btn btn-info">Add Offer</a></h5>
+  
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead class="thead-primary">
+                <tr class="text-center">
+                  <th>ID</th>
+                  <th>Product name</th>
+                  <th>Product id</th>
+                  <th>End AT</th>
+                  <th>Percent</th>
+                  <th colspan="3">Action</th>
+                </tr>
+              </thead>
+              <tr class="text-center" *ngFor="let offer of offers   |paginate: { id: 'listing_pagination',
+              itemsPerPage: 4,
+              currentPage: page,
+              totalItems: totalRecords}">
+               <th>{{offer.id}}</th>
+               <th>{{offer.product.name}}</th>
+                <th>{{offer.product.id}}</th>
+                <td>{{offer.end_at}}</td>
+                <td>{{offer.percent}} %</td>
+               
+  
+                
+                <td> <a routerLink="edit/{{offer.id}}"><i class='fa-solid fa-pencil'></i>
+                  </a></td>
+                <td> <a (click)="deleteoffer(offer.id)">
+                    <i class='fa-solid fa-trash text-danger'></i>
+                  </a></td>
+  
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="text-center">
+    <pagination-controls class="my-pagination" id="listing_pagination"
+    (pageChange)="page = $event"></pagination-controls>
+  </div>

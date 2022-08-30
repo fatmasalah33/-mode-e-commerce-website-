@@ -1,0 +1,104 @@
+.title{
+	 color: #00173B !important;
+  font-weight: 500 !important;
+   font-family: 'Rubik', sans-serif;
+}
+footer{
+      background-color: white !important;
+}
+
+.form-control:focus{
+	border: 1px solid #00173B;
+    box-shadow: 2px 2px  7px #EBEBEB;
+}
+.form-control{
+	font-size: smaller;
+	font-weight: 500;
+	color: #00173B !important;
+}
+.head{
+    font-weight: bold;
+    color: #04091D;
+}
+.btn-pink{
+    background-color: #f2acbe !important;
+    color: white;
+    padding: 0 3.1rem;
+    box-shadow: 0 3px 5px  #E3E3E3;
+    border: none;
+    width: fit-content;
+  
+  }
+  .btn:hover{
+    border: none;
+    background-color: #cc909f !important;
+  }
+.form-container{
+	width: 500px;
+}
+
+footer{
+    background-color: #04091D;
+    color: #00173B;
+}
+.footer{
+    padding: 20px;
+    border-bottom: 2px solid #EFEFEF;
+}
+.footer a{
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: #00173B;
+    font-size: 15px;
+}
+.footer a:hover{
+    text-decoration: underline;
+}
+.footer h5{
+    color: #00173B;
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+.frame{
+    display: flex;
+
+}
+i:hover{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+.footer input[type="submit"]:hover{
+  padding: 6px 9px;
+  margin: 0;
+}
+.copy{
+    font-size: 14px;
+    font-weight: 500;
+}
+.footer div{
+    margin-bottom: 35px;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .footer{
+        display: flex; 
+        justify-content: space-between;
+
+    }
+    .frame{
+    justify-content: space-between;
+}
+.footer div{
+    margin-bottom: 0;
+}
+.footer{
+    padding: 50px;
+    border-bottom: 2px solid #EFEFEF;
+}
+ }

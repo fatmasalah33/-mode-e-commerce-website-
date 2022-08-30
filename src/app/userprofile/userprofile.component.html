@@ -1,0 +1,106 @@
+<section class="py-3 ">
+    <div class="container">
+        <div class="bg-white shadow rounded-lg d-block d-sm-flex " >
+            <div class="profile-tab-nav border-right">
+                <div class="p-4">
+                    <h4 class="text-center">Hi, {{username}}</h4>
+                </div>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link" id="account-tab" data-toggle="pill" routerLink="accountdetails" role="tab" aria-controls="account" aria-selected="true">
+                        <i class="fa fa-home text-center mr-1"></i> 
+                        Account details
+                    </a>
+                    <a class="nav-link" id="account-tab" data-toggle="pill" routerLink="addressbook" role="tab" aria-controls="account" aria-selected="true">
+                        <i class="fa fa-home text-center mr-1"></i> 
+                        Address book
+                    </a>
+                   
+                    <a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false" routerLink="myorders">
+                        <i class="fa fa-user text-center mr-1"></i> 
+                        Orders
+                    </a>
+                    <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" routerLink="Wishlist" aria-controls="application" aria-selected="false">
+                        <i class="fa-solid fa-heart text-center mr-1"></i> 
+                        Whislist
+                    </a>
+                    <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" routerLink="reviews" aria-controls="application" aria-selected="false">
+                        <i class="fa-solid fa-star text-center mr-1"></i> 
+                        Reviews
+                    </a>
+                    <a class="nav-link" id="application-tab" data-toggle="pill" routerLink="chpassword" role="tab" aria-controls="application" aria-selected="false">
+                        <i class="fa-solid fa-key text-center mr-1"></i> 
+                        Change Password
+                    </a>
+                    <a class="nav-link text-center last"  id="application-tab" data-toggle="pill" (click)='logOut()' role="tab" aria-controls="application" aria-selected="false">
+                       
+                        Logout
+                    </a>
+                </div>
+                
+            </div>
+            
+<div style="width: 100%;">
+            <router-outlet></router-outlet>
+            </div>
+                    
+
+
+                </div>
+                <section >
+        
+                    <div class="card my-4 " >
+                      <div class=" rounded-top p-3 pb-0">
+                        <h4>Recommended for you</h4>
+                      </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="card-block">
+                            
+                           
+                          <!--products-->
+                          <div class="row p-2">
+                            <div class="col-md-2 col-sm-6" *ngFor="let product of random ; let i = index">
+                                <a [routerLink]="['/productdetails' , product.id]">
+                                  <div class="product-grid">
+                                    <div class="product-image" >
+                                        <a href="#" class="image">
+                                            <img [src]="pathimage+product.image">
+                                        </a>
+                                        <span class="product-discount-label" *ngIf="product.Offeres!=null">{{product.Offeres.offeres.percent}}%</span>
+                                        <!-- <ul class="product-links">
+                                            <li><a (click)="addtowhishlist(product,$event)"><i class="fa-regular fa-heart"></i></a></li>
+                                        </ul> -->
+                                        <!-- <a (click)="insertincart($event,product)" class="add-to-cart">Add to Cart</a> -->
+                                    </div>
+                                    <div class="product-content">
+                                        <h3 class="title"> <a [routerLink]="['/productdetails' , product.id]">{{product.name}}</a></h3>
+                                        <span class="price me-1" *ngIf="product.Offeres!=null">EGP {{product.Offeres.price_offer}} </span>
+                                        <span class="  d-inline" [ngClass]="{'oldprice': product.Offeres!=null,'price': product.Offeres==null}">EGP{{product.price}} </span>
+                                                  
+              <!--                               
+                                        <div>
+                                          <ul class="ulsize">
+                                              <li class="lisize" *ngFor="let psize of product.sizes ;let i = index">
+                                                  <button class="btnsize" (click)="addprosize($event,product.id,psize.id)" type="button" 
+                                                  >{{psize.size}}</button>
+                                              </li>
+                                          
+                                      
+                                          </ul>
+                                      </div>    -->
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                           
+                        </div>
+                          <!--end of products-->
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    </section>
+            </div>
+        
+    
+</section>

@@ -1,0 +1,30 @@
+.navbar-brand{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.form-control{
+    background-image: url(../../assets/images/search.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    padding-left: 37px;
+}
+.btn-pink , .bg-pink{
+    background-color: #f2acbe !important;
+}
+.navbar{
+    box-shadow: 0 3px 5px  #E3E3E3 !important;
+}
+.fa-cart-shopping{
+    padding-left: 0 !important;
+}
+
+@media screen and (max-width: 791px) {
+  
+    .search-btn{
+        font-size: 13px;
+        
+    }
+
+}
+

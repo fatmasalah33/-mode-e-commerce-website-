@@ -1,0 +1,103 @@
+ <footer>
+  <p class="border-bottom " ></p>
+     <div class="container px-5 pt-5 pb-4">
+      <div>
+        <section class="text-center ">
+            <h5 class="title">Subscribe and get FREE SHIPPING.</h5>
+              <div class="d-flex justify-content-center align-items-center">
+                    <form 
+                    #copunForm="ngForm" (ngSubmit)="insertemail(copunForm)"  class="form-container d-flex align-items-baseline align-content-center justify-content-center">
+                     <input type="email"
+                     ngModel
+                     name="email"
+                     #email="ngModel"
+                     required
+                     pattern='^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$'
+                     [(ngModel)]="copoun.email" class="form-control px-3 py-3 mt-2 me-2" id="exampleFormControlInput1" placeholder="Your email address">
+                     <div
+                     id="emailHelp"
+                     *ngIf="(email.touched && email.invalid)|| 
+                     (email.untouched && isSubmitted)"
+                     class="form-text text-danger"
+                   >
+                     <small *ngIf="email?.errors?.['required']"
+                       >This field is required</small
+                     >
+                   
+                     <small *ngIf="email?.errors?.['pattern']"
+                       >Please enter a valid email</small
+                     >
+                   </div>
+           
+                     <button  class="btn btn-pink py-2 px-4 mb-3">Subscribe</button>
+                </form>
+              </div>
+              <div
+              id="emailHelp"
+              *ngIf="erroremail!=''"
+              class="form-text text-danger"
+            >
+              <small 
+                >Please make sure that you are logged in and that your email address is correct and the last coupon is over a month ago</small
+              >
+            
+             
+            </div>
+            <div
+            id="emailHelp"
+            *ngIf="successemai!=''"
+            class="form-text text-success"
+          >
+            <small 
+              >The coupon has been sent successfully, please check your email</small
+            >
+          
+           
+          </div>
+        </section>
+      </div>
+        <!--footer-->
+    <footer>
+        <div class="footer">
+         <div>
+          <a routerLink="contact-us" class="head">Contact Us</a>
+          <a href="tel:1973999"><i class="fa-solid fa-phone me-1"></i> <span> +02 325 326</span></a>
+          <a href="mailto:support@gmail.com"><i class="fa-solid fa-envelope me-1"></i> <span> support@gmail.com</span></a>
+         </div>
+         <div>
+        <a routerLink="About-us" class="head">About Us</a>
+        <a routerLink="terms-of-use">Terms & Conditions</a>
+          
+          <a routerLink="privacy">Privacy Policy</a>
+          
+      </div>
+      <div>
+         
+        <a routerLink="track-order" class="head">Track Your Order</a>
+        <a routerLink="cancel-order">Order cancellation</a>
+        <a routerLink="payment-methods">Payment methods</a>
+        
+        
+          
+      </div>
+      <div>
+          <a routerLink="sale" class="head">Hot deals</a>
+          <a routerLink="userprofile/Wishlist">Whislist</a>
+          <a routerLink="FAQ">FAQ</a>
+          
+      </div>
+      <div>
+          <h5 class="head">Follow Us</h5>
+          <div class="frame">
+          <a href="#"><i class="fa-brands fa-facebook-f me-2"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter me-2"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram me-2"></i></a>
+          </div>
+      </div>
+     </div>  
+        <div class="copy text-start pt-3">&copy;2022 ITI. All Rights Reserved.</div>
+    </footer>
+
+  </div>
+ </footer>
+  

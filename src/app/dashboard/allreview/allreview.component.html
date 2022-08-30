@@ -1,0 +1,52 @@
+<section class="section mt-5">
+    <div class="container">
+      <div class="row justify-content-center">
+      </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class=" d-flex  row">
+                <h1 class=" text-center justify-content-center title fs-1">All Review</h1>
+               
+               
+              </div>
+              <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                              <th>ID</th>
+                              <th>feedback</th>
+                              <th>rating</th>
+                              <th>user_name</th>
+                              <th>product_name</th>
+                            
+                            
+                            </tr>
+                        </thead>
+                        <tr class="text-center" *ngFor="let review of reviews |paginate: { id: 'listing_pagination',
+                        itemsPerPage: 5,
+                        currentPage: page,
+                        totalItems: totalRecords}">
+                        <th >{{review.id}}</th>
+                          <th >{{review.feedback}}</th>
+                          <th >{{review.rating}}</th>
+                          <td>{{review.user_name}} </td>
+                          <td>{{review.product_name}}</td>
+                      
+                          
+                         
+                         
+                         
+                       
+                     
+                      </tr>
+                        </table>
+                        </div>
+                        </div>
+        </div>
+        </div>
+        </section>
+
+        <div class="text-center">
+          <pagination-controls class="my-pagination" id="listing_pagination"
+          (pageChange)="page = $event"></pagination-controls>
+        </div>

@@ -1,0 +1,227 @@
+<div class="container mt-3" *ngIf="l>0">
+    <div class="wrapper wrapper-content animated  fadeInRight">
+        <div class="row">
+            <div class="col-md-9 ">
+                <div class="card">
+                    <div class="ibox-title">
+                        <h5>Cart ({{l}})</h5>
+                    </div>
+                    <div class="ibox-content ">
+                        <div class="table-responsive">
+                            <table class="table shoping-cart-table">
+                                <tbody>
+                                <tr *ngFor="let cat of cart ; let i = index" >
+                                    <td width="90"  [ngClass]="{'outofstock': cat.product[0].quantity==0}">
+                                        <div class="cart-product-imitation">
+                                            <img [src]="pathimage+cat.product[0].image" style="width:50px; height:50px"
+                                            [ngClass]="{'outofstock': cat.product[0].quantity==0}"  alt="">
+                                        </div>
+                                    </td>
+                                    <td class="desc" >
+                                        <h3>
+                                        <a href="#" class="text-navy" [ngClass]="{'outofstock': cat.product[0].quantity==0}">
+                                            {{cat.product[0].name}}
+                                        </a>
+                                        </h3>
+                                    
+                                        <div *ngIf="cat.product[0].quantity==0" class="mb-2">
+                                            <span class="outofstock-badge py-1 px-2">OUT OF STOCK</span><br>
+                                        </div>
+                                        <dl class="small m-b-none" [ngClass]="{'outofstock': cat.product[0].quantity==0}"> 
+                                            <button class="btn" (click)="decreaseQuantity(cat,i) ">-</button>
+                                            <button class="btn" >{{cat.quantity}}</button>
+                                      
+                                            <button class="btn" (click)=" increaseQuantity(cat,i)">+</button>
+                                        </dl>
+                                        <p class="" *ngIf="cat.size_id !=null">
+                                           
+                                           size : {{cat.size_name[0].size}} 
+                                          </p>
+                                        <div class="m-t-sm">
+                                            <a [ngClass]="{'outofstock': cat.product[0].quantity==0}" href="#" class="text-warning"><i class="fa fa-gift"></i> Add gift package</a>
+                                            |
+                                            <a (click)="deletecartitem(cat.id)"
+                                             class="text-danger "><i class="fa fa-trash"></i> Remove item</a>
+                                        </div>
+                                    </td>
+                                    <td [ngClass]="{'outofstock': cat.product[0].quantity==0}">
+                                        
+                                        <s class="small text-muted"></s>
+                                    </td>
+                                    <td width="65">
+                                       
+                                    </td>
+                                    <td [ngClass]="{'outofstock': cat.product[0].quantity==0}">
+                                        <h4>
+                                            EGP {{cat.price}}
+                                        </h4>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                   
+
+
+                    
+                    <div class="ibox-content">
+                        <a routerLink="" class="btn "><i class="fa fa-arrow-left"></i> Continue shopping</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="ibox-title">
+                        <h5>Cart Summary</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <span>
+                            Total
+                        </span>
+                        <h2 class="font-bold">
+                            EGP {{totalprice}}
+                        </h2>
+
+                        <hr>
+                        <!-- <span class="text-muted small">
+                            Orders above 250 EGP have free delivery
+                        </span>
+                        <hr> -->
+                       
+
+
+                        <div class="mt-3">
+                            <div class="btn-group d-flex justify-content-center">
+                              <a (click)="checkout()" class="btn px-1 ms-2 btn-purple  w-100"><i class="fa fa-shopping-cart me-2"></i>CHECKOUT</a>
+                            </div>
+                          </div>
+
+
+                    </div>
+                </div>
+                <div class="ibox">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div *ngIf="l==0">
+         
+
+        <div class="container ">
+            <div class="row mt-3">
+                    <div class="card py-4 text-center">
+                        <div class="ibox-content">
+                            <div class="table-responsive">
+                                <!-- <table class="table shoping-cart-table">
+    
+                                    <tbody>
+                                    <tr>
+                                        <td width="100">
+                                            <div class="">
+                                                <img src="../../assets/images/1.jpg" class="outofstock" style="max-width:100%;"  alt="">
+                                            </div>
+                                        </td>
+                                        <td class="desc">
+                                            <h3>
+                                                <a href="#" class="text-navy outofstock">
+                                                    hat
+                                                </a>
+                                            </h3>
+                                            <p class="small outofstock">
+                                               cute hat with flowers 
+                                            </p>
+                                            <div class="mb-2">
+                                                <span class="outofstock-badge py-1 px-2">OUT OF STOCK</span><br>
+                                            </div>
+                                            <dl class="small m-b-none outofstock">
+                                                <dt>Description lists</dt>
+                                                <dd>A description list is perfect for defining terms.</dd>
+                                            </dl>
+                                            <div class="m-t-sm">
+                                                <a href="#"  class="text-warning outofstock"><i class="fa fa-gift"></i> Add gift package</a>
+                                                |
+                                                <a href="#" class="text-danger"><i class="fa fa-trash"></i> Remove item</a>
+                                            </div>
+                                        </td>
+                                        <td class="outofstock">
+                                            EGP 50
+                                        </td>
+                                        <td width="65">
+                                            <input type="text" class="form-control" placeholder="1">
+                                        </td>
+                                        <td>
+                                            <h4 class="outofstock">
+                                                EGP 50
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table> -->
+                            </div>
+                        </div>
+                        <img src="../../assets/images/shopping-cart.png" class="icon my-2">
+                        <h6 class="bold"> Your cart is empty!</h6>
+                        <p class="thin">Browse our categories and discover our best deals!</p>
+                        <a href="#" class="btn btn-pink btn-sm px-3 mx-auto">START SHOPPING</a>
+                    </div>
+            </div>
+          
+          
+          
+        </div>
+    </div>
+ <div class="container ">
+    <section >
+        
+        <div class="card my-4 " >
+          <div class=" rounded-top p-3 pb-0">
+            <a href="http://localhost:4200/userprofile/Wishlist" class="btn btn-purple btn-sm float-right see">SEE ALL ></a>
+            <h4>Saved items</h4>
+          </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card-block">
+                
+               
+              <!--products-->
+              <div class="row p-2">
+                <div class="col-md-2 col-sm-6" *ngFor="let item of savearray ; let i = index">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img [src]="pathimage+item.product.products[0].image">
+                            </a>
+                            <span class="product-discount-label" *ngIf="item.product.products[0].Offeres!=null">{{item.product.products[0].Offeres.offeres.percent}}%</span>
+                         
+                            <a (click)="insertincart($event,item.product.products[0])" class="add-to-cart">Add to Cart</a>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"> <a [routerLink]="['/productdetails' , item.product.products[0].id]">{{item.product.products[0].name}}</a></h3>
+                            <span class="price me-1" *ngIf="item.product.products[0].Offeres!=null">EGP {{item.product.products[0].Offeres.price_offer}} </span>
+                            <span class="  d-inline" [ngClass]="{'oldprice': item.product.products[0].Offeres!=null,'price': item.product.products[0].Offeres==null}">EGP{{item.product.products[0].price}} </span>
+                            <div>
+                                <ul class="ulsize">
+                                    <li class="lisize" *ngFor="let psize of item.product.products[0].sizes ;let i = index">
+                                        <button *ngIf="psize.pivot.quantity>0" class="btnsize" (click)="addprosize($event,item.product.products[0].id,psize.id)" type="button" 
+                                        >{{psize.size}}</button>
+                                    </li>
+                                
+                            
+                                </ul>
+                            </div>	            
+                            
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+              <!--end of products-->
+            </div>
+          </div>
+        </div>
+        </div>
+        </section>
+ </div>
+  

@@ -1,0 +1,52 @@
+<section class="section ">
+    <div class="container">
+      <div class="row justify-content-center">
+      </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class=" d-flex  row">
+                <h1 class=" text-center justify-content-center title fs-1">All catogery</h1>
+                <h5> <a routerLink="addcatogery" class="btn btn-info">Add category</a></h5>
+               
+              </div>
+              <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                              <th>ID</th>
+                              <th>name</th>
+                              <th>description</th>
+                              <th> main category</th>
+                              <th colspan="3">Action</th>
+                            </tr>
+                        </thead>
+                        <tr class="text-center" *ngFor="let  category of  categories  |paginate: { id: 'listing_pagination',
+                        itemsPerPage: 5,
+                        currentPage: page,
+                        totalItems: totalRecords}">
+                          <th >{{category.id}}</th>
+                          <td>{{category.name}}</td>
+                          <td>{{category.description}}</td>
+                         <td *ngIf="category.category_name.length>0">{{category.category_name[0].name}}</td>
+                         <td *ngIf="category.category_name.length==0"></td>
+                          
+                         
+                          
+                           <td> <a routerLink="edit/{{category.id}}"><i class='fa-solid fa-pencil'></i>
+                                </a></td>
+                          <td> <a (click)="deletecategory(category.id)">
+                          <i class='fa-solid fa-trash text-danger'></i>  
+                          </a></td>
+                     
+                      </tr>
+                        </table>
+                        </div>
+                        </div>
+        </div>
+        </div>
+        </section>
+
+        <div class="text-center">
+          <pagination-controls class="my-pagination" id="listing_pagination"
+          (pageChange)="page = $event"></pagination-controls>
+        </div>

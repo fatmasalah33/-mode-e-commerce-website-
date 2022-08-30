@@ -1,0 +1,97 @@
+
+
+<div class="container-fluid">
+	<div class="row">
+	<aside class="col-md-3">
+    
+
+</aside>
+<main class="col-md-12">
+    <header class="border-bottom mb-4 pb-3">
+            <div class="form-inline">   
+                <label for="" class="me-2">Sort by: </label>
+                <select (change)="getstatus($event)" class="mr-2 form-select w-25" name="status">
+                    <option>filter by the order status</option>
+                    <option value="pending">pending</option>
+                    <option value="confirmed">confirmed</option>
+                    <option value="shipped">shipped</option>
+                    <option value="delivered">delivered</option>
+                    <option value="cancelld">cancelled</option>
+                </select>
+           
+            </div>
+    </header>
+    </main>
+</div>
+</div> 
+<section class="section ">
+    <div class="container">
+        <div class="row justify-content-center">
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class=" d-flex  row">
+                    <h1 class=" text-center justify-content-center title fs-1">All Orders</h1>
+                   
+
+                </div>
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                                <th>ID</th>
+                                <th>Status</th>
+                                <th>price</th>
+                              
+                                <th>Address_state</th>
+                                <th>Address_city</th>
+                                <th>Address_street</th>
+                              
+                                <th>name</th>
+                                <th>phone</th>
+                                <th colspan="3">Action</th>
+                            </tr>
+                        </thead>
+                        <tr class="text-center" *ngFor="let order of orders   |paginate: { id: 'listing_pagination',
+                        itemsPerPage: 5,
+                        currentPage: page,
+                        totalItems: totalRecords}">
+                            <th>{{order.id}}</th>
+                            <td>{{order.status}}</td>
+                            <td>{{order.price}} L.E</td>
+                          
+                            <td>{{order.address_data.buyeraddresses[0].address_state[0].name}}</td>
+                            <td>{{order.address_data.buyeraddresses[0].address_city[0].name}}</td>
+                            <td>{{order.address_data.buyeraddresses[0].address_street}}</td>
+                     
+                            <td>{{order.address_data.buyeraddresses[0].name}}</td>
+                            <td>{{order.address_data.buyeraddresses[0].phone}}</td>
+                           
+                            
+
+                            <td>
+                            <td>
+                                <!-- <a 
+                                 routerLink="edit/{{order.id}}"><i class='fa-solid fa-pencil'></i>
+                                </a> -->
+                            <a *ngIf="(order.status === 'pending' || order.status === 'confirmed'
+                            || order.status ==='shipped')"
+                             class="btn btn-light text-primary " (click)="statusnow(order)">update to next status</a>
+                            </td>
+                            <td>
+                                
+                                <a class="btn btn-light text-danger" *ngIf="order.status=='pending'" (click)="cancelldorder(order.id)">
+                                    cancelled order</a>              
+                            </td>
+                           
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="text-center">
+    <pagination-controls class="my-pagination" id="listing_pagination"
+    (pageChange)="page = $event"></pagination-controls>
+  </div>

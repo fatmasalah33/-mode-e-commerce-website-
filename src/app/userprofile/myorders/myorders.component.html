@@ -1,0 +1,22 @@
+<div class="p-5 py-2 p-md-3" >
+      
+      <div class="py-0 ps-3 mb-2 border-bottom">
+        <h3 class="maintitle">Orders </h3>
+    </div>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" 
+          id="pills-home-tab" data-toggle="pill" routerLink="open-orders" role="tab" aria-controls="pills-home" aria-selected="true"
+          >Open Orders ({{order.length}})</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" routerLink="closed-orders" role="tab" aria-controls="pills-profile" aria-selected="false"
+          >Closed Orders ({{orderclose.length}})</a>
+        </li>
+    
+      </ul>
+</div>
+<div style="width: 100%;">
+  <router-outlet></router-outlet>
+  </div>
+          

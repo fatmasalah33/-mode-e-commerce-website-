@@ -1,0 +1,73 @@
+<div class="section ps-5 pe-5">
+    <div class="mt-0 mb-0 ms-auto me-auto custom-width">
+        <div class="card card-format d-flex flex-row row">
+            <div class="card-body col-6 m-auto">
+                <h2 class="title">Add category</h2>
+                <form method="post" action="" enctype="multipart/form-data" (ngSubmit)="insertdate()">
+                    <div class="input-group d-flex flex-column">
+                        <input class="form-control w-100 mb-1" type="text" placeholder="category Name"
+                         name="dname" [(ngModel)]="category.name" 
+                         ngModel
+                         #cat_name="ngModel"
+                         name="cat_name"
+                         required>
+                       
+                         <div
+                         id="yournameHelp"
+                         *ngIf="(cat_name.touched && cat_name.invalid)|| 
+                         (cat_name.untouched && isSubmitted)"
+                         class="form-text text-danger"
+                       >
+                         <small *ngIf="cat_name?.errors?.['required']"
+                           >This field is required</small
+                         >
+                      
+                       </div>
+                    </div>
+             
+                    <div class="input-group d-flex flex-column">
+                        <input class="form-control mb-1 mt-3 w-100" type="text"
+                         placeholder="description" [(ngModel)]="category.description"
+                          name="description"
+                          ngModel
+                          #description="ngModel"
+                          name="description"
+                          required>
+                          
+                          <div
+                          id="descriptionHelp"
+                          *ngIf="(description.touched && description.invalid)|| 
+                          (description.untouched && isSubmitted)"
+                          class="form-text text-danger"
+                        >
+                          <small *ngIf="cat_name?.errors?.['required']"
+                            >This field is required</small
+                          >
+                       
+                        </div>
+                    </div>
+                 
+          
+                 
+                 
+                    <div class="input-group d-flex flex-column">
+                      <label>Select a category</label>
+                  <select class='form-select mb-1 mt-3 w-100' name='category_id' [(ngModel)]="category.category_id">
+                          
+                            <option *ngFor="let  category of  categories ; let i = index"  value="{{category.id}}" >{{category.name}}</option>
+
+    
+                      </select>
+
+                    </div>
+               
+                    <div class="mt-2 d-inline-block me-3">
+         <input class="btn btn-info ps-4 pe-4 pt-1 pb-1 " type="submit" name="addcategory" value="Add category">
+                    </div>
+                   
+                 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
